@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>С Днём Рождения, Миша и Витя! 🎉 </title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,25 +25,25 @@
     .balloon {
       position: absolute;
       bottom: -100px;
-      opacity: 0.85;
+      opacity: 0.8;
       animation: floatUp 12s infinite linear;
       border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
     }
     .balloon::after {
       content: "";
       position: absolute;
-      bottom: -12px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       width: 2px;
-      height: 16px;
+      height: 14px;
       background-color: rgba(255, 255, 255, 0.6);
     }
 
     @keyframes floatUp {
       0% {
         transform: translateY(0) rotate(0deg);
-        opacity: 0.85;
+        opacity: 0.8;
       }
       100% {
         transform: translateY(-120vh) rotate(20deg);
@@ -53,83 +53,89 @@
 
     /* Неоновое свечение для заголовка */
     .glow-text {
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(236, 72, 153, 0.5);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(236, 72, 153, 0.4);
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 min-h-screen text-white relative overflow-x-hidden flex flex-col justify-between">
+<body class="bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 min-h-screen text-white relative overflow-x-hidden flex flex-col justify-between">
 
   <!-- Анимированный фон с шариками -->
   <div id="balloons-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
   <!-- Главный контейнер -->
-  <div class="container mx-auto px-4 py-8 relative z-10 flex-grow flex flex-col items-center justify-center text-center">
+  <div class="container mx-auto px-4 py-6 relative z-10 flex-grow flex flex-col items-center justify-center text-center">
     
     <!-- Шапка / Заголовок -->
-    <header class="mb-10 max-w-3xl">
-      <div class="inline-block bg-yellow-400 text-purple-950 font-extrabold text-sm uppercase px-4 py-1.5 rounded-full mb-4 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform">
+    <header class="mb-6 sm:mb-10 max-w-2xl w-full">
+      <div class="inline-block bg-yellow-400 text-purple-950 font-extrabold text-xs sm:text-sm uppercase px-4 py-1 rounded-full mb-3 shadow-md">
         🎂  Двойной праздник!
       </div>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight glow-text leading-tight">
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black mb-3 tracking-tight glow-text leading-tight">
         С Днём Рождения,<br>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Миша</span> 
         & 
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">Витя</span>!
       </h1>
-      <p class="text-lg md:text-xl text-purple-200 font-light max-w-2xl mx-auto">
-        Дорогие братья! Пусть этот день принесёт море радости, исполнения всех желаний и ярких моментов. Для каждого из вас и для вас обоих мы подготовили сюрпризы!
+      <p class="text-sm sm:text-base md:text-lg text-purple-200 font-light px-2">
+        Дорогие братья! Пусть этот день принесёт море радости, исполнения всех желаний и ярких моментов.
       </p>
     </header>
 
     <!-- Секция с видео-кнопками -->
-    <main class="w-full max-w-4xl my-4">
-      <div class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl border border-white/20 shadow-2xl">
-        <h2 class="text-2xl font-bold mb-6 text-yellow-300">
-          <i class="fa-solid fa-film mr-2"></i> Поздравления в видеоформате:
+    <main class="w-full max-w-3xl my-2">
+      <div class="bg-white/10 backdrop-blur-md p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold mb-5 text-yellow-300">
+          <i class="fa-solid fa-film mr-2"></i> Поздравления:
         </h2>
 
-        <!-- Три основные кнопки -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Три основные кнопки (на телефонах идут друг под другом) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           
           <!-- 1. Кнопка для Миши -->
-          <button onclick="openModal('misha')" class="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 p-0.5 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl hover:shadow-cyan-500/50">
-            <div class="bg-slate-900/80 backdrop-blur-sm p-6 rounded-[15px] h-full flex flex-col items-center justify-center group-hover:bg-transparent transition-all">
-                
-<div class="w-16 h-16 bg-cyan-500/20 text-cyan-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-white group-hover:text-cyan-600 transition-all">
-                <i class="fa-solid fa-play text-2xl ml-1"></i>
+          <button onclick="openModal('misha')" class="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 p-0.5 active:scale-95 transition-all shadow-lg">
+            <div class="bg-slate-900/90 backdrop-blur-sm p-4 sm:p-5 rounded-[11px] sm:rounded-[15px] h-full flex flex-row sm:flex-col items-center justify-start sm:justify-center gap-4 sm:gap-0">
+
+<div class="w-12 h-12 sm:w-14 sm:h-14 bg-cyan-500/20 text-cyan-400 rounded-full flex items-center justify-center sm:mb-3 shrink-0">
+                <i class="fa-solid fa-play text-lg sm:text-xl ml-0.5"></i>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">Видео для Миши</h3>
-              <p class="text-xs text-cyan-200">Персональное поздравление</p>
+              <div class="text-left sm:text-center">
+                <h3 class="text-base sm:text-lg font-bold text-white">Видео для Миши</h3>
+                <p class="text-xs text-cyan-200">Персональное</p>
+              </div>
             </div>
           </button>
 
           <!-- 2. Кнопка для Вити -->
-          <button onclick="openModal('vitya')" class="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-pink-600 to-rose-500 p-0.5 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl hover:shadow-pink-500/50">
-            <div class="bg-slate-900/80 backdrop-blur-sm p-6 rounded-[15px] h-full flex flex-col items-center justify-center group-hover:bg-transparent transition-all">
-              <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-white group-hover:text-pink-600 transition-all">
-                <i class="fa-solid fa-play text-2xl ml-1"></i>
+          <button onclick="openModal('vitya')" class="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-pink-600 to-rose-500 p-0.5 active:scale-95 transition-all shadow-lg">
+            <div class="bg-slate-900/90 backdrop-blur-sm p-4 sm:p-5 rounded-[11px] sm:rounded-[15px] h-full flex flex-row sm:flex-col items-center justify-start sm:justify-center gap-4 sm:gap-0">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center sm:mb-3 shrink-0">
+                <i class="fa-solid fa-play text-lg sm:text-xl ml-0.5"></i>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">Видео для Вити</h3>
-              <p class="text-xs text-pink-200">Персональное поздравление</p>
+              <div class="text-left sm:text-center">
+                <h3 class="text-base sm:text-lg font-bold text-white">Видео для Вити</h3>
+                <p class="text-xs text-pink-200">Персональное</p>
+              </div>
             </div>
           </button>
 
           <!-- 3. Кнопка для Миши и Вити -->
-          <button onclick="openModal('both')" class="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 to-purple-600 p-0.5 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl hover:shadow-purple-500/50 md:col-span-1">
-            <div class="bg-slate-900/80 backdrop-blur-sm p-6 rounded-[15px] h-full flex flex-col items-center justify-center group-hover:bg-transparent transition-all">
-              <div class="w-16 h-16 bg-purple-500/20 text-yellow-300 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-yellow-400 group-hover:text-purple-900 transition-all">
-                <i class="fa-solid fa-heart text-2xl"></i>
+          <button onclick="openModal('both')" class="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500 to-purple-600 p-0.5 active:scale-95 transition-all shadow-lg sm:col-span-1">
+            <div class="bg-slate-900/90 backdrop-blur-sm p-4 sm:p-5 rounded-[11px] sm:rounded-[15px] h-full flex flex-row sm:flex-col items-center justify-start sm:justify-center gap-4 sm:gap-0">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-500/20 text-yellow-300 rounded-full flex items-center justify-center sm:mb-3 shrink-0">
+                <i class="fa-solid fa-heart text-lg sm:text-xl"></i>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">Для Миши и Вити</h3>
-              <p class="text-xs text-purple-200">Общее праздничное видео</p>
+              <div class="text-left sm:text-center">
+                <h3 class="text-base sm:text-lg font-bold text-white">Для Миши и Вити</h3>
+                <p class="text-xs text-purple-200">Общее видео</p>
+              </div>
             </div>
           </button>
 
         </div>
 
-        <!-- Кнопка Конфетти / Салют -->
-        <div class="mt-8 pt-6 border-t border-white/10">
-          <button onclick="launchConfetti()" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-purple-950 font-black py-3 px-8 rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all inline-flex items-center gap-2">
+        <!-- Кнопка Салют -->
+        <div class="mt-6 pt-5 border-t border-white/10">
+          <button onclick="launchConfetti()" class="w-full sm:w-auto bg-gradient-to-r from-yellow-400 to-orange-500 text-purple-950 font-black py-3 px-6 rounded-full shadow-lg active:scale-95 transition-all inline-flex items-center justify-center gap-2 text-sm sm:text-base">
             <i class="fa-solid fa-wand-magic-sparkles"></i> Запустить праздничный салют!
           </button>
         </div>
@@ -137,46 +143,46 @@
     </main>
 
     <!-- Пожелания -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full my-6 text-left">
-      <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
-        <h4 class="font-bold text-cyan-300 mb-2 text-lg"><i class="fa-solid fa-star mr-2"></i>Мише желаем:</h4>
-        <p class="text-sm text-slate-300">Крепкого здоровья, амбициозных целей, крутых успехов и невероятных открытий! Пусть всё задуманное сбывается легко и быстро.</p>
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl w-full my-4 text-left">
+      <div class="bg-white/5 border border-white/10 p-4 rounded-xl">
+        <h4 class="font-bold text-cyan-300 mb-1 text-sm sm:text-base"><i class="fa-solid fa-star mr-2"></i>Мише желаем:</h4>
+        <p class="text-xs sm:text-sm text-slate-300">Крепкого здоровья, амбициозных целей и крутых успехов во всём!</p>
       </div>
-      <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
-        <h4 class="font-bold text-pink-300 mb-2 text-lg"><i class="fa-solid fa-rocket mr-2"></i>Вите желаем:</h4>
-        <p class="text-sm text-slate-300">Неиссякаемой энергии, верных друзей, больших побед и море позитивных эмоций! Пусть каждый день приносит радость.</p>
+      <div class="bg-white/5 border border-white/10 p-4 rounded-xl">
+        <h4 class="font-bold text-pink-300 mb-1 text-sm sm:text-base"><i class="fa-solid fa-rocket mr-2"></i>Вите желаем:</h4>
+        <p class="text-xs sm:text-sm text-slate-300">Неиссякаемой энергии, верных друзей и больших побед!</p>
       </div>
     </section>
 
   </div>
 
   <!-- Футер -->
-  <footer class="relative z-10 text-center py-6 text-sm text-purple-300/60 border-t border-white/10 bg-black/20">
+  <footer class="relative z-10 text-center py-4 text-xs text-purple-300/60 border-t border-white/10 bg-black/20">
     <p>С любовью и наилучшими пожеланиями ❤️  | 2026</p>
   </footer>
 
-  <!-- Модальное окно для видео -->
-<div id="videoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0">
-    <div class="bg-slate-900 border border-white/20 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalContainer">
+<!-- Модальное окно для видео (оптимизированное под мобильные экраны) -->
+  <div id="videoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300 opacity-0">
+    <div class="bg-slate-900 border border-white/20 rounded-2xl sm:rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl relative transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]" id="modalContainer">
       
       <!-- Шапка модального окна -->
-      <div class="p-4 flex justify-between items-center border-b border-white/10 bg-white/5">
-        <h3 id="modalTitle" class="text-lg font-bold text-yellow-400">Название видео</h3>
-        <button onclick="closeModal()" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors">
+      <div class="p-3 sm:p-4 flex justify-between items-center border-b border-white/10 bg-white/5 shrink-0">
+        <h3 id="modalTitle" class="text-sm sm:text-base font-bold text-yellow-400 truncate pr-2">Название видео</h3>
+        <button onclick="closeModal()" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors shrink-0">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
       <!-- Контейнер для Видеоплеера -->
-      <div class="relative w-full aspect-[9/16] bg-black flex items-center justify-center">
+      <div class="relative w-full aspect-[9/16] bg-black flex items-center justify-center overflow-hidden">
         <video id="videoPlayer" class="w-full h-full object-contain" controls playsinline>
           Ваш браузер не поддерживает встроенное видео.
         </video>
       </div>
 
       <!-- Футер модалки -->
-      <div class="p-4 text-center bg-white/5">
-        <p id="modalDesc" class="text-sm text-slate-300">Описание видео...</p>
+      <div class="p-3 sm:p-4 text-center bg-white/5 shrink-0">
+        <p id="modalDesc" class="text-xs sm:text-sm text-slate-300">Описание видео...</p>
       </div>
     </div>
   </div>
@@ -188,7 +194,7 @@
       misha: {
         title: "🎬 Поздравление для Миши",
         url: "misha.mp4", 
-        desc: "Дорогой Миша, это видео с наилучшими пожеланиями специально для тебя!"
+        desc: "Дорогой Миша, это видео специально для тебя!"
       },
       vitya: {
         title: "🎬 Поздравление для Вити",
@@ -198,11 +204,10 @@
       both: {
         title: "🎉  Общее видео для Миши и Вити",
         url: "both.mp4", 
-        desc: "Миша и Витя — одна команда! С праздником вас, братья!"
+        desc: "Миша и Витя — одна команда! С праздником вас!"
       }
     };
 
-    // Функция открытия модального окна
     function openModal(type) {
       const modal = document.getElementById('videoModal');
       const container = document.getElementById('modalContainer');
@@ -230,7 +235,6 @@
       launchConfetti();
     }
 
-    // Функция закрытия модального окна
     function closeModal() {
       const modal = document.getElementById('videoModal');
       const container = document.getElementById('modalContainer');
@@ -247,39 +251,38 @@
       }, 300);
     }
 
-    // Закрытие модального окна при клике вне его области
     document.getElementById('videoModal').addEventListener('click', function(e) {
       if (e.target === this) {
         closeModal();
       }
     });
 
-    // Функция салюта (Конфетти)
     function launchConfetti() {
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 80,
-          spread: 70,
+          particleCount: 60,
+          spread: 60,
           origin: { y: 0.6, x: 0.2 }
         });
         confetti({
-          particleCount: 80,
-          spread: 70,
+          particleCount: 60,
+          spread: 60,
           origin: { y: 0.6, x: 0.8 }
         });
       }
     }
-// Генерация анимированных воздушных шариков на фоне
+
     function createBalloons() {
-      const container = document.getElementById('balloons-container');
+
+const container = document.getElementById('balloons-container');
       const colors = ['#f43f5e', '#3b82f6', '#ec4899', '#8b5cf6', '#eab308', '#06b6d4'];
-      const count = 15;
+      const count = 10; // Уменьшили количество для мобильных, чтобы не перегружать процессор
 
       for (let i = 0; i < count; i++) {
         const balloon = document.createElement('div');
         balloon.className = 'balloon';
         
-        const size = Math.floor(Math.random() * 30) + 40;
+        const size = Math.floor(Math.random() * 20) + 35;
         const color = colors[Math.floor(Math.random() * colors.length)];
         const left = Math.random() * 100;
         const delay = Math.random() * 10;
